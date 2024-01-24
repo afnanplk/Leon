@@ -11,9 +11,6 @@ const pino = require('pino');
 const colors = require('colors');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs');
-require('http')
- .createServer(async (req, res) => {})
- .listen(process.env?.PORT || 8080, () => true);
 
 const Users = database.define('Users', {
     name: {
@@ -83,8 +80,8 @@ async function Connect() {
            try {
             fs.unlinkSync('./commands/' + cmd.name + '.js');
            } catch {}
-           await uninstall(cmd.name);
-           console.log('[ + ] ' + cmd.name + ' command has been removed!');
+            await uninstall(cmd.name);
+            console.log('[ + ] ' + cmd.name + ' command has been removed!');
           }
          }
         });
